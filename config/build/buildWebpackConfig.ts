@@ -3,6 +3,7 @@ import { BuildOptions } from "./types/config";
 import { buildPlugins } from "./buildPlugins";
 import { buildLoaders } from "./buildLoaders";
 import { buildResolvers } from "./buildResolvers";
+import { buildDevServer } from "./buildDevServer";
 
 export function buildWebpackConfig (options: BuildOptions): webpack.Configuration {
     const {paths, mode} = options;
@@ -19,5 +20,6 @@ export function buildWebpackConfig (options: BuildOptions): webpack.Configuratio
         },
         plugins: buildPlugins(options),
         resolve: buildResolvers(),
+        devServer: buildDevServer(options),
       }
 }
